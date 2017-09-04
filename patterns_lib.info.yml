@@ -1,0 +1,8 @@
+name: Patterns lib
+type: module
+description: Default
+core: 8.x
+package: User interface
+dependencies:
+  - ui_patterns
+  - components

@@ -1,0 +1,14 @@
+{
+  "name": "drupal/patterns_lib",
+  "type": "drupal-module",
+  "description": "Default",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/patterns_lib",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/patterns_lib",
+    "source": "http://cgit.drupalcode.org/patterns_lib"
+  },
+  "require": { }
+}

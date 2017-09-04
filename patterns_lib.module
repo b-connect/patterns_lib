@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains patterns_lib.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+
+/**
+ * Implements hook_help().
+ */
+function patterns_lib_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the patterns_lib module.
+    case 'help.page.patterns_lib':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Default') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function patterns_lib_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  $fields['entity_uri'] = BaseFieldDefinition::create('uri')
+    ->setLabel(t('Entity URI'))
+    ->setComputed(TRUE)
+    ->setClass('\Drupal\patterns_lib\EntityUriFieldItemList')
+    ->setName('entity_uri')
+    ->setDescription(t('The user ID of the node author.'))
+    ->setSetting('source', 'source')
+    ->setDisplayConfigurable('view', TRUE);
+}
